@@ -1,10 +1,6 @@
 import "./pages/index.css";
-import {
-  initialCards,
-  createCard,
-  removeCard,
-  likeCard,
-} from "./scripts/cards.js";
+import { initialCards } from "./scripts/cards.js";
+import { createCard, removeCard, likeCard } from "./scripts/card.js";
 import { openModal, closeModal } from "./scripts/modal.js";
 const cardTemplate = document.querySelector("#card-template").content;
 const cardList = document.querySelector(".places__list");
@@ -13,7 +9,6 @@ const cardList = document.querySelector(".places__list");
 initialCards.forEach((card) => {
   const cardItem = createCard(
     cardTemplate,
-    cardList,
     card.link,
     card.name,
     removeCard,
@@ -44,11 +39,11 @@ const addCardPopup = document.querySelector(".popup_type_new-card");
 const closeButton = addCardPopup.querySelector(".popup__close");
 
 openAddButton.addEventListener("click", () => {
+  imageForm.reset();
   openModal(addCardPopup);
 });
 closeButton.addEventListener("click", () => {
   closeModal(addCardPopup);
-  imageForm.reset();
 });
 
 // открытие попапа картинки
@@ -79,13 +74,13 @@ const jobInput = profileForm.elements.description;
 nameInput.value = profileTitle.textContent;
 jobInput.value = profileDesc.textContent;
 
-function handleFormSubmit(evt) {
+function editProfileSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDesc.textContent = jobInput.value;
   closeModal(editProfilePopup);
 }
-profileForm.addEventListener("submit", handleFormSubmit);
+profileForm.addEventListener("submit", editProfileSubmit);
 
 const imageForm = document.forms["new-place"];
 function addNewImage(evt) {
@@ -94,7 +89,6 @@ function addNewImage(evt) {
   const newImageURL = imageForm.elements.link.value;
   const cardItem = createCard(
     cardTemplate,
-    cardList,
     newImageURL,
     newImageTitle,
     removeCard,
