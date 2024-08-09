@@ -11,9 +11,9 @@ export function closeModal(popup) {
 }
 
 function closeOnOverlay(event) {
-  if (event.target === event.currentTarget) {
-    closeModal(event.currentTarget);
-  }
+   if (event.target === event.currentTarget) {
+     closeModal(event.currentTarget);
+   }
 }
 
 function closeOnEscape(event) {

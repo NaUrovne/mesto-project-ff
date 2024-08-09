@@ -9,6 +9,36 @@
   margin: 0 29px 0 0;
 }
 
+.profile__image-container {
+  block-size: -moz-fit-content;
+  block-size: fit-content;
+  cursor: pointer;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+  position: relative;
+}
+
+.profile__image-overlay {
+  background-color: rgba(0,0,0,.8);
+  background-image: url(/src/images/profileEdit.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 26px;
+  block-size: 120px;
+  font-family: inherit;
+  inline-size: 120px;
+  opacity: 0;
+  position: absolute;
+  transition: visibility .4s,opacity .4s;
+  visibility: hidden;
+}
+
+.profile__image-container:hover .profile__image-overlay {
+  opacity: 1;
+  transition: visibility .4s,opacity .4s;
+  visibility: initial;
+}
+
 @media screen and (max-width: 740px) {
   .profile__image {
     margin: 0 10px 0 0;
