@@ -61,6 +61,7 @@ export const fetchAddNewCard = (name, link) => {
       if (!res.ok) {
         return Promise.reject(`Error: ${res.status}`);
       }
+      console.log(res.headers.get('Content-Type'));
       return res.json();
     })
     .catch((err) => {

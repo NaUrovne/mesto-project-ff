@@ -1,4 +1,4 @@
-export const showInputError = (
+const showInputError = (
   formElement,
   inputElement,
   errorMessage,
@@ -11,7 +11,7 @@ export const showInputError = (
   errorElement.classList.add(config.errorClass);
 };
 
-export const hideInputError = (formElement, inputElement, config) => {
+const hideInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
   inputElement.classList.remove(config.inputErrorClass);
@@ -44,7 +44,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-export const toggleButtonState = (inputList, buttonElement, config) => {
+const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add(config.inactiveButtonClass);
@@ -90,14 +90,4 @@ export const clearValidation = (formElement, config) => {
     }
   });
   toggleButtonState(inputList, buttonElement, config);
-};
-
-/// ВАЛИДАЦИЯ ФОРМ
-export const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
 };

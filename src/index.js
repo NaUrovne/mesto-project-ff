@@ -4,7 +4,6 @@ import { openModal, closeModal } from "./scripts/modal.js";
 import {
   enableValidation,
   clearValidation,
-  validationConfig,
 } from "./scripts/validation.js";
 import {
   fetchUserProfile,
@@ -208,6 +207,15 @@ function changeAvatarSubmit(evt) {
     });
 }
 avatarForm.addEventListener("submit", changeAvatarSubmit);
+
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 
 enableValidation(validationConfig);
 
