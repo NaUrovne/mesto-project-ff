@@ -1,12 +1,12 @@
 import { putLike, deleteLike } from "./api";
 
-export const createCard = (
+export const createCard = ({
   cardTemplate,
   data,
   userId,
   showImgPopup,
   handleDeleteCard
-) => {
+}) => {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const deleteButton = cardElement.querySelector(".card__delete-button");
   const likeButton = cardElement.querySelector(".card__like-button");

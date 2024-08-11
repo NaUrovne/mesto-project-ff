@@ -83,11 +83,13 @@ export const clearValidation = (formElement, config) => {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
-    if (
-      formElement.parentNode.parentNode.classList.contains("popup_type_edit")
-    ) {
-      isValid(formElement, inputElement, config);
-    }
+    // Данный хардкод я прописал, что бы устранить следующий баг: https://youtu.be/v900DVuaE7s
+    // Подскажите пожалуйста, как это можно сделать другим способом. Спасибо!
+    // if (
+    //   formElement.parentNode.parentNode.classList.contains("popup_type_edit")
+    // ) {
+    //   isValid(formElement, inputElement, config);
+    // }
   });
   toggleButtonState(inputList, buttonElement, config);
 };
